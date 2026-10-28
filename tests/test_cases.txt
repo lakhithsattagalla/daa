@@ -1,0 +1,79 @@
+Self-created test cases; no official sample was included in the supplied statement.
+Each case below is a separate invocation of: py main.py
+
+CASE 1: Single isolated vertex
+Input:
+1 0
+Expected output:
+COMPONENTS 1
+PRIM 0 0
+KRUSKAL 0 0
+AGREEMENT YES
+
+CASE 2: Disconnected graph, cycle, and isolated vertex
+Input:
+5 4
+0 1 4
+1 2 2
+0 2 3
+3 4 1
+Expected output:
+COMPONENTS 2
+PRIM 6 3
+3 4 1
+1 2 2
+0 2 3
+KRUSKAL 6 3
+3 4 1
+1 2 2
+0 2 3
+AGREEMENT YES
+
+CASE 3: Equal-weight cycle and reversed endpoint order
+Input:
+3 3
+2 0 1
+2 1 1
+1 0 1
+Expected output:
+COMPONENTS 1
+PRIM 2 2
+0 1 1
+0 2 1
+KRUSKAL 2 2
+0 1 1
+0 2 1
+AGREEMENT YES
+
+CASE 4: Two disconnected components with ties and multiple cycles
+Input:
+6 6
+0 1 2
+1 2 2
+0 2 2
+3 4 5
+4 5 5
+3 5 5
+Expected output:
+COMPONENTS 2
+PRIM 14 4
+0 1 2
+0 2 2
+3 4 5
+3 5 5
+KRUSKAL 14 4
+0 1 2
+0 2 2
+3 4 5
+3 5 5
+AGREEMENT YES
+
+CASE 5: Maximum-size dense graph performance check
+Generated input:
+n = 100; include every undirected edge u-v where 0 <= u < v < 100;
+give every edge weight 1.
+Expected output properties:
+COMPONENTS 1
+Both forests have total cost 99 and 99 edges.
+AGREEMENT YES
+The 99 reported edges in each forest are sorted by (weight, u, v).
